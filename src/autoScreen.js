@@ -11,72 +11,72 @@
 // @grant        none
 // ==/UserScript==
 
-(function() {
-  'use strict';
+;(function () {
+  'use strict'
 
-    function pageOnload(targetNode, cb) {
-      // 创建一个观察器实例并传入回调函数
-      const observer = new MutationObserver(cb);
+  function pageOnload(targetNode, cb) {
+    // 创建一个观察器实例并传入回调函数
+    const observer = new MutationObserver(cb)
 
-      // 以上述配置开始观察目标节点
-      observer.observe(targetNode, { childList: true });
+    // 以上述配置开始观察目标节点
+    observer.observe(targetNode, { childList: true })
   }
 
   // Your code here...
   /* ---------- BILIBILI ------------- */
   // 改画质
   function BiLiPlayerQuality() {
-      const ele = document.getElementById('live-player')
-      const mousemove = new Event("mousemove");
-      ele.dispatchEvent(mousemove);
+    const ele = document.getElementById('live-player')
+    const mousemove = new Event('mousemove')
+    ele.dispatchEvent(mousemove)
 
-      const qualityBtn = document.querySelector('.quality-wrap.svelte-73epzt');
-      const mouseenter = new Event("mouseenter");
-      qualityBtn.dispatchEvent(mouseenter);
-      setTimeout(() => {
-          const proBtn = document.querySelectorAll('.quality-it.svelte-73epzt')[0];
-          proBtn.click()
-          BiLiAutoOpen()
-      }, 100)
+    const qualityBtn = document.querySelector('.quality-wrap.svelte-73epzt')
+    const mouseenter = new Event('mouseenter')
+    qualityBtn.dispatchEvent(mouseenter)
+    setTimeout(() => {
+      const proBtn = document.querySelectorAll('.quality-it.svelte-73epzt')[0]
+      proBtn.click()
+      BiLiAutoOpen()
+    }, 100)
   }
   // 自动屏幕全屏
   function BiLiAutoOpen() {
-      const ele = document.getElementById('live-player')
-      const ev = new Event("dblclick");
-      ele.dispatchEvent(ev);
+    const ele = document.getElementById('live-player')
+    const ev = new Event('dblclick')
+    ele.dispatchEvent(ev)
   }
   function BILI() {
-      pageOnload(document.body, BiLiPlayerQuality)
+    pageOnload(document.body, BiLiPlayerQuality)
   }
   /* ---------- 虎牙 ------------- */
   // 改画质
   function HYPlayerQuality() {
-      document.getElementById('player-fullpage-btn').click()
+    document.getElementById('player-fullpage-btn').click()
   }
   // 自动屏幕全屏
   function HYAutoOpen() {
-      document.querySelectorAll('.player-videotype-list li')[0].click()
+    document.querySelectorAll('.player-videotype-list li')[0].click()
   }
   function HY() {
-      HYAutoOpen()
-      HYPlayerQuality()
+    HYAutoOpen()
+    HYPlayerQuality()
   }
 
   // 执行
-  window.onload = function () {  
+  window.onload = function () {
     setTimeout(() => {
-        const currentUrl = window.location.host
-        switch(currentUrl) {
-            case 'www.huya.com':
-                HY()
-                break;
-                case 'live.bilibili.com':
-                BILI()
-                break;
-                case 'www.douyu.com': 
-                // DY()
-                break;
-            }
-        }, 1000)
+      const currentUrl = window.location.host
+      switch (currentUrl) {
+        case 'www.huya.com':
+          HY()
+          break
+        case 'live.bilibili.com':
+          BILI()
+          break
+        case 'www.douyu.com':
+          // DY()
+          break
+      }
+    }, 1000)
   }
-})();
+})()
