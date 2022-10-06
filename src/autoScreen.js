@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         bilibili/huya自动屏幕全屏原画Pro
 // @namespace    http://tampermonkey.net/
-// @version      2.0.1
-// @description  bilibili/huya 500ms后自动屏幕全屏原画Pro
+// @version      2.0.2
+// @description  bilibili/huya 1000ms后自动屏幕全屏原画Pro
 // @author       wj
 // @match        https://www.huya.com/*
 // @match        https://live.bilibili.com/*
