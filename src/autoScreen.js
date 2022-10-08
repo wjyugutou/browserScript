@@ -2,7 +2,7 @@
 // @name         bilibili/huya自动屏幕全屏原画Pro
 // @namespace    http://tampermonkey.net/
 // @version      2.0.6
-// @description  bilibili/huya 500ms后自动屏幕全屏原画Pro
+// @description  bilibili/huya 1s后自动屏幕全屏原画Pro
 // @author       wj
 // @match        https://www.huya.com/**
 // @match        https://www.huya.com/*
@@ -38,7 +38,7 @@
       const proBtn = document.querySelectorAll('.quality-it.svelte-73epzt')[0]
       proBtn.click()
       BiLiAutoOpen()
-    }, 100)
+    }, 1000)
   }
   // 自动屏幕全屏
   function BiLiAutoOpen() {
